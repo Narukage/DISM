@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    /<style>
+
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        .map {
+            height: 100vh;
+        }
+
+        #edificio {
+            font-size: 10px;
+        }
+
+        .mapa {
+            display: none;
+            height: 93vh;
+        }
+
+        #map2 {
+            height: 100vh;
+            display: none;
+        }
+
+        #map {
+            height: 100vh;
+            width: 100vh;
+        }
+        #page1 {
+            font-size: 50px;
+            height: 100vh;
+        }
+
+    </style>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+</head>
+<body>
+
+
+    <div data-role="page" id="page1">
+        <div data-role="header">
+            <h1>Menú</h1>
+        </div>
+        <div data-role="content">
+            <a href="map.html" class="ui-btn ui-shadow ui-corner-all" id="data_ask">Geolocalizacion</a>
+            <a href="maquinas.html" class="ui-btn ui-shadow ui-corner-all" id="data_ask">Precios</a>
+            <a href="precio.html" class="ui-btn ui-shadow ui-corner-all">Maquinas</a>
+            <a href="mapaedificios.html" class="ui-btn ui-shadow ui-corner-all" id="data_ask">Edificios</a>
+            <a href="creditos.html" class="ui-btn ui-shadow ui-corner-all">Creditos</a>
+        </div>
+    </div>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="scripts/platformOverrides.js"></script>
+</body>
+</html>

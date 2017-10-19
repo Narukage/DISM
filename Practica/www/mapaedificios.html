@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>Mapa con Edificios UA</title>
+	<meta name="viewport" content="initial-scale=1.0">
+	<meta charset="utf-8">
+	<style>
+		html, body {
+			height: 100%;
+			margin: 0;
+			padding: 0;
+		}
+	</style>
+
+</head>
+<body>
+	<a href="index.html" class="ui-btn ui-icon-home ui-btn-icon-notext ui-corner-all" data-icon="home">Volver</a>
+	<div id="map" class="map"></div>
+	<script>
+			$.ajax({
+                url: "https://dev.datos.ua.es/uapi/U8xwQtxtdkyr9ZpFYy5v/datasets/11/data",
+				success: function (response) {
+					console.log("success");
+					console.log(response);
+				},
+				error: function (response) {
+					var text = response.responseText.replace("null(", "").slice(0,- 1);
+					var objeto = $.parseJSON(text);
+					var map = new google.maps.Map(document.getElementById('map'), {
+						center: { lat: 38.3848, lng: -0.5132},
+						zoom: 15
+					});
+					for (i = 0; i < objeto.length; i++) {
+						var coordenada = objeto[i].bbox.split(",");
+						var marker = new google.maps.Marker({
+							position: { lat: parseFloat(coordenada[1]), lng: parseFloat(coordenada[0]) },
+							map: map,
+							title: objeto[i].nombre
+						});
+					}
+				}
+
+			});
+	</script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQSAIu-j5lpXKNru1JO8G2OgqXOD5OhWc&callback=initMap"
+            async defer></script>
+</body>
+</html>
